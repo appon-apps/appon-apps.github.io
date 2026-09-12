@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Documentation — App On</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 44rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem;
+         font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+         color: #1f2328; background: #fff; }
+  @media (prefers-color-scheme: dark) { body { color: #e6edf3; background: #0d1117; } }
+  h1 { font-size: 1.8rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.2rem; margin-top: 2.2rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .95rem; }
+  th, td { border: 1px solid #d0d7de; padding: .5rem .6rem; text-align: left; vertical-align: top; }
+  @media (prefers-color-scheme: dark) { th, td { border-color: #30363d; } }
+  code { font-size: .9em; }
+  hr { border: 0; border-top: 1px solid #d0d7de; margin: 2rem 0; }
+  footer { margin-top: 3rem; font-size: .85rem; opacity: .7; }
+</style>
+</head><body>
+<h1>Documentation — Page Sign-off for Confluence</h1>
+<p><strong>App On</strong> · Last updated: 12 September 2026 How to install, set up and use **Page Sign-off for Confluence (Approvals &amp; Audit Trail)**. If something here does not match what you see, write to <strong>stomaci_improvviso5i@icloud.com</strong> and it will be corrected.</p>
+<h2>What the app does</h2>
+<p>It turns a Confluence page into a controlled document: you ask one or more people to approve it, they approve or request changes with a comment, and the decision is recorded together with the exact page version it applies to. When an approved page is edited, the approval no longer applies, so the app withdraws it automatically.</p>
+<h2>Requirements</h2>
+<ul><li>Confluence Cloud. No other product, server or service is needed.</li><li>The app runs on <strong>Atlassian Forge</strong>, inside Atlassian&#x27;s own infrastructure.</li><li>A Confluence administrator installs it; any user who can see a page can see its</li></ul>
+<p>  approval status.</p>
+<h2>Installing</h2>
+<p>1. Open the app on the Atlassian Marketplace and select <strong>Try it free</strong> or <strong>Buy now</strong>. 2. Choose the Confluence site to install it on and confirm the permissions requested. 3. That is the whole setup. There is no workflow engine to configure, no external    account to create and nothing to connect. The app is <strong>free for up to 10 users</strong>. Above that it is charged per user, per month, on Atlassian&#x27;s standard progressive tiers; the current prices are on the <em>Pricing</em> tab of the Marketplace listing.</p>
+<h2>Requesting approval on a page</h2>
+<p>1. Open the page. 2. Open the <strong>…</strong> menu at the top right of the page and choose <strong>Request approval</strong>. 3. In the dialog, pick one or more <strong>approvers</strong>, and optionally a <strong>review period</strong>    (3, 6, 12 or 24 months). 4. Select <strong>Send</strong>. The page immediately shows a banner reading <em>Awaiting approval</em>, and — unless the space administrator has turned this off — the app posts a comment on the page that <strong>mentions</strong> the approvers, so Confluence notifies them the way it notifies anyone who is mentioned.</p>
+<h2>Approving, or requesting changes</h2>
+<p>An approver opens the page and uses the approval panel next to the page author&#x27;s name, at the top of the page:</p>
+<ul><li><strong>Approve</strong> — records the sign-off against the current page version.</li><li><strong>Request changes</strong> — sends it back, with a comment explaining why.</li></ul>
+<p>Both actions ask for a comment. The comment is stored in the record and is also posted as a reply inside the original notification comment, so one approval cycle stays one readable conversation on the page.</p>
+<h2>The statuses, and what each one means</h2>
+<table><thead><tr><th>Status</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Awaiting approval</td><td>Approval has been requested and no decision has been taken yet</td></tr>
+<tr><td>Approved</td><td>Every approver has signed off, and the page has not been touched since</td></tr>
+<tr><td>Changes requested</td><td>An approver sent the page back, with a comment</td></tr>
+<tr><td>Edited after approval</td><td>The page was approved, and then edited. The approval has been withdrawn automatically; the banner says which version had been approved and which version the page is at now</td></tr>
+<tr><td>Review overdue</td><td>The review period set when approval was requested has expired, and the page is due to be looked at again</td></tr>
+</tbody></table>
+<p>The status is shown in two places: a <strong>banner at the top of the page</strong>, and a short label next to the page author, which opens the panel with the full history.</p>
+<h2>What happens when an approved page is edited</h2>
+<p>Within seconds of the page being saved, the app withdraws the approval and sets the status to <em>Edited after approval</em>. The previous decision is not deleted: it stays in the history, with the version number it applied to. To get back to <em>Approved</em>, request approval again.</p>
+<h2>Review periods</h2>
+<p>A review period is set when approval is requested. Once the period has elapsed the app marks the page <strong>Review overdue</strong> — a daily check finds pages whose review date has passed. Overdue pages appear in the banner and can be filtered in the space register.</p>
+<h2>The space register</h2>
+<p>In the Confluence left-hand sidebar of any space, open <strong>Page approvals</strong>. It lists every page in that space that has an approval record, with:</p>
+<ul><li>the status, and a filter by status;</li><li>the approver and the date of the decision;</li><li>the page version the decision applies to;</li><li>the comment left with the decision.</li></ul>
+<p><strong>Exporting for an audit.</strong> The register offers an <strong>Export CSV</strong> action. In this version the export is produced as text to copy: select <strong>Export CSV</strong>, copy the contents of the box and paste them into a spreadsheet or save them as a <code>.csv</code> file. A direct file download is planned.</p>
+<h2>Space settings</h2>
+<p><strong>Space settings → Integrations → Page approvals</strong>, available to space administrators:</p>
+<ul><li><strong>Default approvers</strong> — pre-filled on every new request in the space.</li><li><strong>Default review period</strong> — pre-filled on every new request in the space.</li><li><strong>Notify approvers with a comment</strong> — on by default. Turn it off if you do not want</li></ul>
+<p>  the app to post comments on your pages; approvers will then have to be told another   way.</p>
+<h2>Where your data is kept</h2>
+<p>Everything the app records is written <strong>inside your own Confluence site</strong>: the state of each page as a content property on that page, and the space defaults as a space property. The app keeps no copy of your data outside Atlassian, calls no third-party service, and uses no artificial-intelligence service. If you uninstall it, the records stay in your Confluence. This is set out in full in the <a href="privacypolicy.html">Privacy Policy</a>.</p>
+<h2>What this version does not do</h2>
+<p>Said plainly, so that nobody buys the wrong thing:</p>
+<ul><li>no multi-stage workflows with roles and conditions;</li><li>no legally binding electronic signatures (it is a record-keeping tool);</li><li>no approvals on attachments, or on part of a page;</li><li>no reminder emails of its own — notification is the Confluence mention described above;</li><li>CSV export is copy-and-paste, not a downloaded file.</li></ul>
+<h2>Troubleshooting</h2>
+<p><strong>The approvers were not notified.</strong> Check *Space settings → Integrations → Page approvals*: the notification comment may be switched off. Check also that the approvers can see the page — Confluence does not notify a mention for a page the person cannot read. <strong>A page went to <em>Edited after approval</em> and nobody meant to change it.</strong> Any saved edit counts, including a small one. Request approval again; the history keeps both decisions. <strong>The register is empty.</strong> The register lists only pages that have an approval record in that space. Pages never sent for approval do not appear. <strong>The app says the subscription is not active.</strong> Existing records stay visible and no data is lost; new approvals resume as soon as the licence is active again.</p>
+<h2>Support</h2>
+<p>Email <strong>stomaci_improvviso5i@icloud.com</strong>, or raise an issue at <a href="https://github.com/appon-apps/appon-apps.github.io/issues">https://github.com/appon-apps/appon-apps.github.io/issues</a>. Support is offered in English and Italian, Monday to Friday, 9:00–18:00 CET, with a first reply normally within one working day.</p>
+<footer>App On · <a href="./">Home</a></footer>
+</body></html>
